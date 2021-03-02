@@ -181,7 +181,19 @@ def quick_sorted(xs, cmp=cmp_standard):
     You should return a sorted version of the input list xs.
     You should not modify the input list xs in any way.
     '''
+    if len(arr) <= 1:
+        return xs
 
+    if len(arr) > 1:
+        
+        pivot = random.randrange(len(xs))
+
+        l, r = arr[:pivot], arr[pivot:]
+
+        return _merged(merge_sorted(l, cmp=cmp_standard),
+                       merge_sorted(r, cmp=cmp_standard), cmp=cmp_standard)
+
+    '''
     small = []
     equal = []
     large = []
@@ -198,7 +210,7 @@ def quick_sorted(xs, cmp=cmp_standard):
         return quick_sorted(small) + equal + quick_sorted(large)
     else:
         return xs
-
+    '''
 
 def quick_sort(xs, cmp=cmp_standard):
     '''
@@ -246,3 +258,4 @@ def quick_sort(xs, cmp=cmp_standard):
             _quicksort(xs, pivot + 1, end)
         return _quicksort(xs, begin, end)
     '''
+    return
