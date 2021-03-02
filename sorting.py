@@ -185,7 +185,7 @@ def quick_sorted(xs, cmp=cmp_standard):
         return xs
 
     arr = xs
-    
+
     if len(arr) > 1:
 
         pivot = random.randrange(len(xs))
