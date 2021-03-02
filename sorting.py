@@ -83,9 +83,9 @@ def _merged(xs, ys, cmp=cmp_standard):
     >>> _merged([1, 3, 5], [2, 4, 6])
     [1, 2, 3, 4, 5, 6]
     '''
-    if not ys:
+    if len(ys) == 0:
         return xs
-    if not xs:
+    if len(xs) == 0:
         return ys
 
     ans = []
@@ -120,10 +120,10 @@ def merge_sorted(xs, cmp=cmp_standard):
     You should return a sorted version of the input list xs.
     You should not modify the input list xs in any way.
     '''
-    arr = xs
-    if len(arr) <= 1:
+    if len(xs) <= 1:
         return xs
 
+    arr = xs
     if len(arr) > 1:
 
         mid = len(arr) // 2
@@ -181,10 +181,11 @@ def quick_sorted(xs, cmp=cmp_standard):
     You should return a sorted version of the input list xs.
     You should not modify the input list xs in any way.
     '''
-    arr = xs
-    if len(arr) <= 1:
+    if len(xs) <= 1:
         return xs
 
+    arr = xs
+    
     if len(arr) > 1:
 
         pivot = random.randrange(len(xs))
