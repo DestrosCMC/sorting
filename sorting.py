@@ -181,6 +181,7 @@ def quick_sorted(xs, cmp=cmp_standard):
     You should return a sorted version of the input list xs.
     You should not modify the input list xs in any way.
     '''
+    arr = xs
     if len(arr) <= 1:
         return xs
 
