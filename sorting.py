@@ -186,7 +186,7 @@ def quick_sorted(xs, cmp=cmp_standard):
         return xs
 
     if len(arr) > 1:
-        
+
         pivot = random.randrange(len(xs))
 
         l, r = arr[:pivot], arr[pivot:]
@@ -212,6 +212,7 @@ def quick_sorted(xs, cmp=cmp_standard):
     else:
         return xs
     '''
+
 
 def quick_sort(xs, cmp=cmp_standard):
     '''
