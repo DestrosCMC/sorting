@@ -10,7 +10,7 @@ If cmp(a, b) returns -1, then a < b;
 if cmp(a, b) returns  1, then a > b;
 if cmp(a, b) returns  0, then a == b.
 '''
-# import random
+import random
 
 
 def cmp_standard(a, b):
@@ -83,6 +83,11 @@ def _merged(xs, ys, cmp=cmp_standard):
     >>> _merged([1, 3, 5], [2, 4, 6])
     [1, 2, 3, 4, 5, 6]
     '''
+    if not ys:
+        return xs
+    if not xs:
+        return ys
+
     ans = []
     len_xs = len(xs)
     i = 0
@@ -116,6 +121,8 @@ def merge_sorted(xs, cmp=cmp_standard):
     You should not modify the input list xs in any way.
     '''
     arr = xs
+    if len(arr) <= 1:
+        return xs
 
     if len(arr) > 1:
 
@@ -123,9 +130,10 @@ def merge_sorted(xs, cmp=cmp_standard):
 
         l, r = arr[:mid], arr[mid:]
 
-        merge_sorted(l, cmp=cmp_standard)
-        merge_sorted(r, cmp=cmp_standard)
+        return _merged(merge_sorted(l, cmp=cmp_standard),
+                       merge_sorted(r, cmp=cmp_standard), cmp=cmp_standard)
 
+        '''
         i = j = k = 0
 
         while i < len(l) and j < len(r):
@@ -147,6 +155,7 @@ def merge_sorted(xs, cmp=cmp_standard):
             j += 1
             k += 1
     return arr
+    '''
 
 
 def quick_sorted(xs, cmp=cmp_standard):
@@ -178,7 +187,7 @@ def quick_sorted(xs, cmp=cmp_standard):
     large = []
 
     if len(xs) > 1:
-        pivot = xs[0]
+        pivot = random.randrange(len(xs))
         for x in xs:
             if x < pivot:
                 small.append(x)
@@ -216,6 +225,7 @@ def quick_sort(xs, cmp=cmp_standard):
     You should directly modify the input xs variable
     instead of returning a copy of the list.
     '''
+    '''
     def partition(xs, begin, end):
         pivot = begin
         for i in range(begin + 1, end + 1):
@@ -235,3 +245,4 @@ def quick_sort(xs, cmp=cmp_standard):
             _quicksort(xs, begin, pivot - 1)
             _quicksort(xs, pivot + 1, end)
         return _quicksort(xs, begin, end)
+    '''
