@@ -121,29 +121,29 @@ def merge_sorted(xs, cmp=cmp_standard):
 
         mid = len(arr) // 2
 
-        L, R = arr[:mid], arr[mid:]
+        l, r = arr[:mid], arr[mid:]
 
-        merge_sorted(L, cmp=cmp_standard)
-        merge_sorted(R, cmp=cmp_standard)
+        merge_sorted(l, cmp=cmp_standard)
+        merge_sorted(r, cmp=cmp_standard)
 
         i = j = k = 0
 
-        while i < len(L) and j < len(R):
-            if cmp_standard(L[i], R[j]) != 1:
-                arr[k] = L[i]
+        while i < len(l) and j < len(r):
+            if cmp_standard(r[i], l[j]) != 1:
+                arr[k] = l[i]
                 i += 1
             else:
-                arr[k] = R[j]
+                arr[k] = r[j]
                 j += 1
             k += 1
 
-        while i < len(L):
-            arr[k] = L[i]
+        while i < len(l):
+            arr[k] = l[i]
             i += 1
             k += 1
 
-        while j < len(R):
-            arr[k] = R[j]
+        while j < len(r):
+            arr[k] = r[j]
             j += 1
             k += 1
     return arr
