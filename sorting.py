@@ -95,7 +95,7 @@ def _merged(xs, ys, cmp=cmp_standard):
     j = 0
 
     while i < len_xs and j < len_ys:
-        if cmp_standard(xs[i], xs[j]) == -1:
+        if cmp_standard(xs[i], ys[j]) == -1:
             ans.append(xs[i])
             i += 1
         else:
