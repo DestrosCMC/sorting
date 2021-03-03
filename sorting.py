@@ -104,6 +104,17 @@ def _merged(xs, ys, cmp=cmp_standard):
             ans[k] = ys[j]
             j += 1
             k += 1
+    
+    while i < len_xs):
+        ans[x] = xs[i]
+        i += 1
+        k += 1
+
+    while j < len(ys):
+        ans[x] = ys[j]
+        j += 1
+        k += 1
+
     return ans
 
 
