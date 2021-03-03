@@ -88,19 +88,22 @@ def _merged(xs, ys, cmp=cmp_standard):
     if len(xs) == 0:
         return ys
 
-    ans = []
+    ans = xs + ys
     len_xs = len(xs)
     i = 0
     len_ys = len(ys)
     j = 0
+    k = 0
 
     while i < len_xs and j < len_ys:
         if cmp_standard(xs[i], ys[j]) == -1:
-            ans.append(xs[i])
+            ans[k] = xs[i]
             i += 1
+            k += 1
         else:
-            ans.append(ys[j])
+            ans[k] = ys[j]
             j += 1
+            k += 1
     return ans
 
 
