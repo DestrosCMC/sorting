@@ -1,15 +1,5 @@
 #!/bin/python3
-'''
-Python provides built-in sort/sorted functions that use timsort internally.
-You cannot use these built-in functions anywhere in this file.
 
-Every function in this file takes a comparator `cmp` as input
-which controls how the elements of the list should
-be compared against each other:
-If cmp(a, b) returns -1, then a < b;
-if cmp(a, b) returns  1, then a > b;
-if cmp(a, b) returns  0, then a == b.
-'''
 import random
 
 
@@ -104,14 +94,14 @@ def _merged(xs, ys, cmp=cmp_standard):
             ans[k] = ys[j]
             j += 1
             k += 1
-    
-    while i < len_xs):
-        ans[x] = xs[i]
+
+    while i < len_xs:
+        ans[k] = xs[i]
         i += 1
         k += 1
 
     while j < len(ys):
-        ans[x] = ys[j]
+        ans[k] = ys[j]
         j += 1
         k += 1
 
