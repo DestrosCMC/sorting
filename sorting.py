@@ -96,7 +96,7 @@ def _merged(xs, ys, cmp=cmp_standard):
     k = 0
 
     while i < len_xs and j < len_ys:
-        if cmp_standard(xs[i], ys[j]) == -1:
+        if cmp(xs[i], ys[j]) == -1:
             ans[k] = xs[i]
             i += 1
             k += 1
@@ -133,8 +133,8 @@ def merge_sorted(xs, cmp=cmp_standard):
 
         l, r = arr[:mid], arr[mid:]
 
-        return _merged(merge_sorted(l, cmp=cmp_standard),
-                       merge_sorted(r, cmp=cmp_standard), cmp=cmp_standard)
+        return _merged(merge_sorted(l, cmp),
+                       merge_sorted(r, cmp), cmp)
 
         '''
         i = j = k = 0
@@ -195,8 +195,8 @@ def quick_sorted(xs, cmp=cmp_standard):
 
         l, r = arr[:pivot], arr[pivot:]
 
-        return _merged(merge_sorted(l, cmp=cmp_standard),
-                       merge_sorted(r, cmp=cmp_standard), cmp=cmp_standard)
+        return _merged(merge_sorted(l, cmp),
+                       merge_sorted(r, cmp), cmp)
 
     '''
     small = []
